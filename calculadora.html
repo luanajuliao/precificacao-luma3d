@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Luma 3D - Dê Luz às Suas Ideias</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-container">
+            <img src="logo.png" alt="Logo Luma 3D" class="logo">
+        </div>
+        <div class="top-bar">
+            <a class="btn" href="index.html">← Voltar</a>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <div class="main-grid">
+
+            <main class="card calculator-card">
+                <h1>Calculadora de Impressão 3D</h1>
+                <p>Estime com precisão o custo das suas peças.</p>
+                
+                <div class="form-sections">
+                    <section class="input-group">
+                        <h2>Filamento</h2>
+                        <label for="precoRolo">Preço do Rolo (R$)</label>
+                        <input type="number" id="precoRolo" placeholder="120.50">
+                        <label for="pesoRolo">Peso do Rolo (g)</label>
+                        <input type="number" id="pesoRolo" value="1000">
+                    </section>
+
+                    <section class="input-group">
+                        <h2>Peça</h2>
+                        <label for="pesoPeca">Peso da Peça (g)</label>
+                        <input type="number" id="pesoPeca" placeholder="Ex: 45">
+                        <label for="tempoImpressao">Tempo (horas)</label>
+                        <input type="number" id="tempoImpressao" placeholder="Ex: 5.5">
+                    </section>
+
+                    <section class="input-group">
+                        <h2>Custos</h2>
+                        <label for="consumoWatts">Consumo (Watts)</label>
+                        <input type="number" id="consumoWatts" placeholder="Ex: 250">
+                        <label for="valorKwh">Valor kWh (R$)</label>
+                        <input type="number" id="valorKwh" value="0.71">
+                    </section>
+                    
+                    <section class="input-group">
+                        <h2>Taxas</h2>
+                        <label for="custoDesgasteHora">Desgaste/Hora (R$)</label>
+                        <input type="number" id="custoDesgasteHora" placeholder="Ex: 1.00">
+                        <label for="taxaPreparacao">Mão de Obra (R$)</label>
+                        <input type="number" id="taxaPreparacao" placeholder="Valor fixo">
+                        <label for="margemLucro">Lucro (%)</label>
+                        <input type="number" id="margemLucro" placeholder="Ex: 50">
+                    </section>
+                </div>
+                <button onclick="calcularPreco()">Calcular Preço</button>
+            </main>
+
+            <div class="card result-card">
+                <h3>Preço Final</h3>
+                <div id="resultado">
+                    <span class="placeholder">Aguardando cálculo...</span>
+                </div>
+            </div>
+
+            <div class="card info-card">
+                <h3>Como Usar</h3>
+                <ul>
+                    <li>Use os dados do seu software fatiador (Cura, PrusaSlicer).</li>
+                    <li>Preencha o peso da peça e o tempo de impressão estimado.</li>
+                    <li>Ajuste os seus custos e margem de lucro desejada.</li>
+                    <li>Clique em calcular para ver o preço sugerido!</li>
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
