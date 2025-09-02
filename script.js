@@ -11,6 +11,15 @@ function calcularPreco() {
     const valorKwh = parseFloat(document.getElementById('valorKwh').value);
     const custoDesgasteHora = parseFloat(document.getElementById('custoDesgasteHora').value);
 
+    // --- NOVO: Obter custos de embalagem ---
+    let custoEmbalagem = 0;
+    const itensExtras = document.querySelectorAll('.extra-item'); // Seleciona todos os checkboxes
+    
+    itensExtras.forEach(item => { // Percorre cada checkbox
+        if (item.checked) { // Verifica se está marcado
+            custoEmbalagem += parseFloat(item.value); // Soma o valor ao custo de embalagem
+        }
+    });
 
     // --- 2. Validar os dados ---
     if (isNaN(precoRolo) || isNaN(pesoRolo) || isNaN(pesoPeca) || isNaN(tempoImpressao) || 
@@ -23,7 +32,7 @@ function calcularPreco() {
     const custoMaterial = (pesoPeca / pesoRolo) * precoRolo;
     const custoEletricidade = (consumoWatts / 1000) * tempoImpressao * valorKwh;
     const custoDesgaste = tempoImpressao * custoDesgasteHora;
-    const custosTotais = custoMaterial + custoEletricidade + custoDesgaste + taxaPreparacao;
+    const custosTotais = custoMaterial + custoEletricidade + custoDesgaste + taxaPreparacao + custoEmbalagem;
     const valorLucro = custosTotais * (margemLucro / 100);
     const precoFinal = custosTotais + valorLucro;
 
